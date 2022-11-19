@@ -151,3 +151,84 @@ import matplotlib.colors as mcolors
 #cv.waitKey(0)
 #cv.destroyAllWindows()
 
+#balanced white WARM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#img = cv.imread('volt.jpg')
+#RGB_img = cv.cvtColor(img, cv.COLOR_BGR2RGB)                         #orig_color
+#fig, ax = plt.subplots(1, figsize=(10, 10))
+#img_gw = ((RGB_img * (RGB_img.mean() / RGB_img.mean(axis=(0, 1))))
+#             .clip(0, 255).astype(int))
+#result = np.hstack((RGB_img, img_gw, img_gw2))
+#plt.imshow(result), plt.show()
+#cv.waitKey(0)
+#cv.destroyAllWindows()
+
+#balansed white with a zone!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#img = cv.imread('volt.jpg')
+#RGB_img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+#def whitepatch_balancing(image, from_row, from_column,
+#                         row_width, column_width):
+#    fig, ax = plt.subplots(1,2, figsize=(10,5))
+#    ax[0].imshow(image)
+#    ax[0].add_patch(Rectangle((from_column, from_row),
+#                              column_width,
+#                              row_width,
+#                              linewidth=1,
+#                              edgecolor='r', facecolor='none'));
+#    ax[0].set_title('Original image')
+#    image_patch = image[from_row:from_row+row_width,
+#                        from_column:from_column+column_width]
+#    image_max = (image*1.0 /
+#                 image_patch.max(axis=(0, 1))).clip(0, 1)
+#    ax[1].imshow(image_max);
+#    ax[1].set_title('Whitebalanced Image')
+#    plt.imshow(image_max), plt.show()
+#    cv.waitKey(0)
+#    cv.destroyAllWindows()
+#whitepatch_balancing(RGB_img, 500, 1500, 120, 120)
+
+#balanced white COLD!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#img = cv.imread('volt.jpg')
+#RGB_img = cv.cvtColor(img, cv.COLOR_BGR2RGB)
+#def white_balance(image):
+#    result = cv.cvtColor(RGB_img, cv.COLOR_BGR2LAB)
+#    avg_a = np.average(result[:, :, 1])
+#    avg_b = np.average(result[:, :, 0])
+#    result[:, :, 2] = result[:, :, 2] - ((avg_a - 128) * (result[:, :, 0] / 255.0) * 1.1)
+#    result[:, :, 2] = result[:, :, 2] - ((avg_b - 128) * (result[:, :, 0] / 255.0) * 1.1)
+#    result = cv.cvtColor(result, cv.COLOR_LAB2BGR)
+#    return result
+#final = np.hstack((RGB_img, white_balance(img)))
+#plt.imshow(final), plt.show()
+#cv.waitKey(0)
+#cv.destroyAllWindows()
+
+#Binarization!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#img = cv.imread('volt.jpg', cv.IMREAD_GRAYSCALE)
+#img1 = cv.resize(img, (300, 300), interpolation=cv.INTER_AREA)
+#ret, binary = cv.threshold(img1, 175, 255, cv.THRESH_BINARY)
+#ret, binaryinv = cv.threshold(img1, 175, 255, cv.THRESH_BINARY_INV)
+#ret, trunc = cv.threshold(img1, 175, 255, cv.THRESH_TRUNC)
+#ret, tozero = cv.threshold(img1, 175, 255, cv.THRESH_TOZERO)
+#ret, tozeroinv = cv.threshold(img1, 175, 255, cv.THRESH_TOZERO_INV)
+#result = np.hstack((binary, binaryinv, trunc, tozero, tozeroinv)) #stacking images side-by-side
+#plt.imshow(result, cmap='gray'), plt.show()
+#cv.waitKey(0)
+#cv.destroyAllWindows()
+
+#countres!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#img = cv.imread('volt.jpg')
+#img_grey = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+#set a thresh
+#thresh = 80
+#get threshold image
+#ret, thresh_img = cv.threshold(img_grey, thresh, 150, cv.THRESH_TOZERO)
+#find contours
+#contours, hierarchy = cv.findContours(thresh_img, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+#create an empty image for contours
+#img_contours = np.zeros(img_grey.shape)
+# draw the contours on the empty image
+#result = cv.drawContours(img_contours, contours, -1, (255, 0, 0), 2)
+#ora = np.hstack((img_grey, result))
+#plt.imshow(ora, cmap='gray'), plt.show()
+#cv.waitKey(0)
+#cv.destroyAllWindows()
