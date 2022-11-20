@@ -233,3 +233,32 @@ import matplotlib.colors as mcolors
 #plt.imshow(ora, cmap='gray'), plt.show()
 #cv.waitKey(0)
 #cv.destroyAllWindows()
+
+#Sobel-countres!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#img = cv.imread('volt.jpg')
+#img_gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+#x = cv.Sobel(img_gray, cv.CV_64F, 1, 0, ksize=3, scale=1)
+#y = cv.Sobel(img_gray, -1, 1, 0, ksize=3, scale=1)
+#absx= cv.convertScaleAbs(x)
+#absy = cv.convertScaleAbs(y)
+#edge = cv.addWeighted(absx, 0.5, absy, 0.5, 0)
+#thresh = 20
+#ret, thresh_img = cv.threshold(edge, thresh, 150, cv.THRESH_TOZERO)
+#contours, hierarchy = cv.findContours(thresh_img, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+#empty = np.zeros(img_gray.shape)
+#draw_c = cv.drawContours(empty, contours, -1, (255, 0, 0), 1)
+#result = np.hstack((edge, draw_c))
+#plt.imshow(result, cmap='gray'), plt.show()
+#cv.waitKey(0)
+#cv.destroyAllWindows()
+
+#blur!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#img = cv.imread('volt.jpg')
+#RGB_img = cv.cvtColor(img, cv.COLOR_BGR2RGB)                         #orig_color
+#ksize = (15, 15)
+# Using cv2.blur() method
+#bluray = cv.blur(RGB_img, ksize)
+#result = np.hstack((RGB_img, bluray))
+#plt.imshow(result), plt.show()
+#cv.waitKey(0)
+#cv.destroyAllWindows()
