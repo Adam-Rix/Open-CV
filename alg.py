@@ -337,12 +337,32 @@ import matplotlib.colors as mcolors
 #cv.destroyAllWindows()
 
 #camera!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-# capture frames from a camera with device index=0
 #cap = cv.VideoCapture(0)
 #while(1):
 #    ret, frame = cap.read()
 #    cv.imshow('Camera', frame)
 #    if cv.waitKey(1) & 0xFF == ord('q'):
+#         break
+
+#cap.release()
+#cv.destroyAllWindows()
+
+#camera + sift/ORB!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#sift = cv.SIFT_create()
+#orb = cv.ORB_create()
+#cap = cv.VideoCapture(0)
+
+#while cap.isOpened():
+
+#    ret, img1 = cap.read()
+
+#    img1 = cv.cvtColor(img1, cv.COLOR_BGR2GRAY)
+#    kp, descriptors_1 = orb.detectAndCompute(img1, None)
+#    img2 = cv.drawKeypoints(img1, kp, cv.DRAW_MATCHES_FLAGS_DRAW_OVER_OUTIMG, flags=0)
+
+#    cv.imshow('SIFT', img2)
+
+#    if cv.waitKey(5) & 0xFF == 27:
 #        break
 
 #cap.release()
